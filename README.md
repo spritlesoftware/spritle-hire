@@ -49,19 +49,3 @@ Tool to simplify the hiring process and save valuable time by choosing the right
 8. #### Start the server
 
 &emsp;&emsp;`rails s`
-
-### Demo URL
-
-&emsp;https://demo.spritle.com
-
-##### &emsp;Admin Credentials
-
-&emsp;&emsp;username: admin@example.com
-
-&emsp;&emsp;password: admin123
-
-##### &emsp;Candidate Credentials
-
-&emsp;&emsp;username: candidate@example.com
-
-&emsp;&emsp;password: candidate123
