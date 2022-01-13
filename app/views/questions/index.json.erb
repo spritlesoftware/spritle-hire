@@ -1,0 +1,27 @@
+<% if @questions.length > 0 %>
+  <%
+    a = @questions.collect do |q|
+      {
+        "questions": [{
+          "name": q.question_text,
+          "type": q.question_type,
+          "title": q.question_text,
+          "placeHolder": "Your answer",
+          "isRequired": false,
+          "autoComplete": "name",
+          "choices": (q.options.present? ? JSON.parse(q.options) : ""),
+          "correctAnswer": q.correct_answer
+        }]
+      }
+    end
+
+    first = [{
+      "questions": [{
+        "type": "html",
+        "html": "<h3>Instructions</h3><p><b>Total Questions: </b>#{@questions.length}</p><p>Please click on <b>'Start Test'</b> button to start.</p><br><p><b>Note: </b></p><ol><li>Please don't refresh the page during test.</li><li>Please submit your response before time closes.</li></ol>"
+      }]
+    }]
+  %>
+
+  <%== first.append(a).flatten.to_json %>
+<% end %>

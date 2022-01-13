@@ -1,0 +1,10 @@
+[
+  {
+    "questions": [
+      {
+        "type": "html",
+        "html": "<h3>Instructions</h3><p><p><b>Total Questions: </b>#{@questions.length}</p><p>Please click on <b>'Start Test'</b> button to start.</p><br><p><b>Note: </b></p><ol><li>Please don't refresh the page during test.</li><li>Please submit your response before time closes.</li></ol>"
+      }
+    ]
+  }
+]

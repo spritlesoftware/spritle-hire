@@ -1,0 +1,288 @@
+/* Test Page */
+.timer {
+  float: right;
+  padding: 20px 20px;
+  margin-top: 20px;
+  background-color: rgb(26 179 148);
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+}
+
+.sv-title {
+  font-family: inherit !important;
+}
+
+.sv-completedpage img {
+  margin-top: -8.5rem !important;
+}
+
+/* Admin Page */
+.custom-card-body {
+  padding: 25px !important;
+  text-align: center !important;
+}
+
+.custom-card {
+  min-height: 300px !important;
+  max-height: 300px !important;
+  overflow-y: auto !important;
+}
+
+.custom-stretch-card {
+  display: block !important;
+}
+
+.custom-badge {
+  color: #fff;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.custom-btn {
+  padding: 0.5rem 0.6rem !important;
+}
+
+.custom-icon {
+  font-size: 1.2rem !important;
+  margin-right: 0 !important;
+  color: #9e9e9e !important;
+}
+
+.custom-blue-tick-icon {
+  color: #248afd !important;
+}
+
+.custom-green-tick-icon {
+  color: #57b657 !important;
+}
+
+.custom-red-tick-icon {
+  color: #ff4747 !important;
+}
+
+.custom-link {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.custom-filter {
+  font-size: x-large !important;
+}
+
+.custom-dropdown-menu {
+  transform: translate3d(-209px, 64px, 0px) !important;
+}
+
+.custom-preview-item-content {
+  padding-top: 10px !important;
+}
+
+.card.custom-card-blue {
+  background: #5e50f9;
+  color: #ffffff;
+}
+
+.card.custom-card-blue:hover {
+  background: #5e50f9cc;
+}
+
+.card.custom-card-indigo {
+  background: #6610f2;
+  color: #ffffff;
+}
+
+.card.custom-card-indigo:hover {
+  background: #6610f2cc;
+}
+
+.card.custom-card-purple {
+  background: #6a008a;
+  color: #ffffff;
+}
+
+.card.custom-card-purple:hover {
+  background: #6a008acc;
+}
+
+.card.custom-card-pink {
+  background: #e91e63;
+  color: #ffffff;
+}
+
+.card.custom-card-pink:hover {
+  background: #e91e63cc;
+}
+
+.card.custom-card-red {
+  background: #f96868;
+  color: #ffffff;
+}
+
+.card.custom-card-red:hover {
+  background: #f96868cc;
+}
+
+.card.custom-card-orange {
+  background: #f2a654;
+  color: #ffffff;
+}
+
+.card.custom-card-orange:hover {
+  background: #f2a654cc;
+}
+
+.card.custom-card-yellow {
+  background: #f6e84e;
+  color: #ffffff;
+}
+
+.card.custom-card-yellow:hover {
+  background: #f6e84ecc;
+}
+
+.card.custom-card-green {
+  background: #46c35f;
+  color: #ffffff;
+}
+
+.card.custom-card-green:hover {
+  background: #46c35fcc;
+}
+
+.card.custom-card-teal {
+  background: #58d8a3;
+  color: #ffffff;
+}
+
+.card.custom-card-teal:hover {
+  background: #58d8a3cc;
+}
+
+.card.custom-card-cyan {
+  background: #57c7d4;
+  color: #ffffff;
+}
+
+.card.custom-card-cyan:hover {
+  background: #57c7d4cc;
+}
+
+.card.custom-card-primary {
+  background: #4b49ac;
+  color: #ffffff;
+}
+
+.card.custom-card-primary:hover {
+  background: #4b49accc;
+}
+
+.card.custom-card-secondary {
+  background: #a3a4a5;
+  color: #ffffff;
+}
+
+.card.custom-card-secondary:hover {
+  background: #a3a4a5cc;
+}
+
+.card.custom-card-success {
+  background: #57b657;
+  color: #ffffff;
+}
+
+.card.custom-card-success:hover {
+  background: #57b657cc;
+}
+
+.card.custom-card-info {
+  background: #248afd;
+  color: #ffffff;
+}
+
+.card.custom-card-info:hover {
+  background: #248afdcc;
+}
+
+.card.custom-card-warning {
+  background: #ffc100;
+  color: #ffffff;
+}
+
+.card.custom-card-warning:hover {
+  background: #ffc100cc;
+}
+
+.card.custom-card-danger {
+  background: #ff4747;
+  color: #ffffff;
+}
+
+.card.custom-card-danger:hover {
+  background: #ff4747cc;
+}
+
+.card.custom-card-count1 {
+  background: #14aed5;
+  color: #ffffff;
+}
+
+.card.custom-card-count1:hover {
+  background: #14aed5cc;
+}
+
+.card.custom-card-count2 {
+  background: #99e540;
+  color: #ffffff;
+}
+
+.card.custom-card-count2:hover {
+  background: #99e540cc;
+}
+
+.card.custom-card-count3 {
+  background: #4b49ac;
+  color: #ffffff;
+}
+
+.card.custom-card-count3:hover {
+  background: #4b49accc;
+}
+
+.card.custom-card-count4 {
+  background: #0c75b2;
+  color: #ffffff;
+}
+
+.card.custom-card-count4:hover {
+  background: #0c75b2cc;
+}
+
+.card.custom-card-count5 {
+  background: #ebb200;
+  color: #ffffff;
+}
+
+.card.custom-card-count5:hover {
+  background: #ebb200cc;
+}
+
+.card.custom-card-count6 {
+  background: #f3797e;
+  color: #ffffff;
+}
+
+.card.custom-card-count6:hover {
+  background: #f3797ecc;
+}
+
+.custom-text-info {
+  color: #000000 !important;
+}
+
+.custom-eye-icon {
+  cursor: pointer;
+  float: right;
+  margin: -33px 17px;
+  display: flex;
+}

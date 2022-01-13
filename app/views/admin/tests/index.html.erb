@@ -1,0 +1,55 @@
+<div class="content-wrapper">
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <!--<div class ="col-md-12" align="right">
+          <%#= link_to new_test_path, :class => "btn btn-success" do %>
+            <i class="ti-plus custom-icon-text"></i>
+            Create Test
+          <%# end %>
+        </div>-->
+
+        <h4 class="card-title">Tests</h4>
+        <!--<p class="card-description">
+          Add class <code>.table-hover</code>
+        </p>-->
+
+        <div class="table-responsive">
+          <table class="display expandable-table" style="width:100%" id="tests-datatable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Total Time(in hours)</th>
+                <th>Tags</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @tests.each do |test| %>
+                <tr>
+                  <td><%= test.name %></td>
+                  <td><%= test.total_time %></td>
+                  <td><%= trim_text(test.tags) %></td>
+                  <td>
+                    <% class_name = (test.status == "active") ? "bg-success" : "bg-danger" %>
+                    <span class="badge <%= class_name %> custom-badge"><%= test.status.humanize %></span>
+                  </td>
+                  <td>
+                    <%= link_to edit_test_path(test), class: "btn btn-default custom-btn" do %>
+                      <i class="mdi mdi-pencil custom-icon"></i>
+                    <% end %>
+                    <%= link_to test, method: :delete, class: "btn btn-default custom-btn" do %>
+                      <i class="mdi mdi-delete custom-icon"></i>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<%= form_with(model: question, local: true, class: "forms-sample") do |f| %>
+  <% if question.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% question.errors.full_messages.each do |message| %>
+          <li style="list-style-type: none; margin-left: -2rem;">
+            <span class="badge badge-sm bg-gradient-danger"><%= message %></span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-group">
+    <%= f.label :question_text %>
+    <%= f.text_field :question_text, class: "form-control", placeholder: "Question Text", required: true %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :question_type %>
+    <%= f.select :question_type, options_for_select({ "Choice" => "radiogroup" }, question.question_type), { prompt: "Select Type" }, { class: "form-control" } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :options %>
+    <%= f.text_field :options, class: "form-control", placeholder: "Question Options", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :correct_answer %>
+    <%= f.text_field :correct_answer, class: "form-control", placeholder: "Correct Answer", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tag %>
+    <%= f.select :tag, options_for_select({ "Attention to Details" => "attention_to_details", "Critical Thinking" => "critical_thinking", "Numerical Reasoning" => "numerical_reasoning", "Verbal Reasoning" => "verbal_reasoning" }, question.tag), { prompt: "Select Tag" }, { class: "form-control" } %>
+  </div>
+
+  <%= f.submit class: "btn btn-primary mr-2" %>
+  <%= link_to "Cancel", "/admin/questions", class: "btn btn-light" %>
+<% end %>

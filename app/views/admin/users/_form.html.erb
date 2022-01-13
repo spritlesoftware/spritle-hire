@@ -1,0 +1,50 @@
+<%= form_with(model: user, local: true, class: "forms-sample") do |f| %>
+
+  <% if action_name == "new" || action_name == "create" %>
+    <%= f.hidden_field :password, value: @random_password %>
+  <% end %>
+
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li style="list-style-type: none; margin-left: -1rem;">
+            <span class="badge badge-sm bg-gradient-danger"><%= message %></span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Name", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control", placeholder: "Email", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :mobile %>
+    <%= f.text_field :mobile, class: "form-control", placeholder: "Mobile" %>
+  </div>
+
+  <% if action_name == "edit" || action_name == "update" %>
+    <div class="form-group">
+      <%= f.label :status %>
+      <%= f.select :status, options_for_select({ "Test Taken" => "test_taken", "Test Sent" => "test_sent", "Test Not Taken" => "test_not_taken" }, user.status), { prompt: "Select Status" }, { class: "form-control" } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :took_test %>?
+      <%= f.select :took_test, options_for_select({ "Yes" => true, "No" => false }, user.took_test), {}, { class: "form-control" } %>
+    </div>
+
+    <%= f.submit "Update Candidate", class: "btn btn-primary mr-2" %>
+  <% else %>
+    <%= f.submit "Create & Send Test", class: "btn btn-primary mr-2" %>
+  <% end %>
+  <%= link_to "Cancel", users_path, class: "btn btn-light" %>
+<% end %>

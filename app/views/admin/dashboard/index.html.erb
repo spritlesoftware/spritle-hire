@@ -1,0 +1,167 @@
+<div class="content-wrapper">
+  <div class="row">
+    <div class="col-md-12 grid-margin">
+      <div class="row">
+        <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+          <h3 class="font-weight-bold">Welcome <%= current_user.name %>!</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <% status = ["test_sent", "test_not_taken"] %>
+    <% date_from = Date.today.strftime("%Y-%m-%d") %>
+
+    <div class="col-md-8 grid-margin transparent">
+      <div class="row">
+        <div class="col-md-12 transparent">
+          <h4 class="font-weight-bold">Overall</h4>
+        </div>
+
+        <div class="col-md-4 mb-4 stretch-card transparent">
+          <div class="card card-dark-blue custom-stretch-card">
+            <div class="card-body custom-card-body">
+              <p class="mb-4">Test Sent</p>
+              <%= link_to "/admin/users", class: "custom-link" do %>
+                <p class="fs-30 mb-2"><%= @test_sent_overall %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 stretch-card transparent">
+          <div class="card custom-card-orange custom-stretch-card">
+            <div class="card-body custom-card-body">
+              <p class="mb-4">Test Taken</p>
+              <%= link_to "/admin/users?status=test_taken", class: "custom-link" do %>
+                <p class="fs-30 mb-2"><%= @test_taken_overall %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 stretch-card transparent">
+          <div class="card custom-card-pink custom-stretch-card">
+            <div class="card-body custom-card-body">
+              <p class="mb-4">Test Not Taken</p>
+              <%= link_to "/admin/users?status=#{status}", class: "custom-link" do %>
+                <p class="fs-30 mb-2"><%= @test_not_taken_overall %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 transparent">
+          <h4 class="font-weight-bold">Today</h4>
+        </div>
+
+        <div class="col-md-4 mb-4 stretch-card transparent">
+          <div class="card card-light-blue custom-stretch-card">
+            <div class="card-body custom-card-body">
+              <p class="mb-4">Test Sent</p>
+              <%= link_to "/admin/users?date_from=#{date_from}", class: "custom-link" do %>
+                <p class="fs-30 mb-2"><%= @test_sent_today %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 stretch-card transparent">
+          <div class="card custom-card-teal custom-stretch-card">
+            <div class="card-body custom-card-body">
+              <p class="mb-4">Test Taken</p>
+              <%= link_to "/admin/users?date_from=#{date_from}&status=test_taken", class: "custom-link" do %>
+                <p class="fs-30 mb-2"><%= @test_taken_today %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 stretch-card transparent">
+          <div class="card custom-card-red custom-stretch-card">
+            <div class="card-body custom-card-body">
+              <p class="mb-4">Above 40%</p>
+              <%= link_to "/admin/users?date_from=#{date_from}&percentage=above&above_40=true", class: "custom-link" do %>
+                <p class="fs-30 mb-2"><%= @above_benchmark %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 grid-margin stretch-card custom-stretch-card">
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="font-weight-bold">Today's Test Results</h4>
+          <div class="card custom-card">
+            <div class="card-body">
+              <% if @recent_tests.length == 0 %>
+                <p class="text-xs mb-0 text-center">No data available</p>
+              <% end %>
+
+              <ul class="icon-data-list">
+                <% @recent_tests.each do |recent_test| %>
+                  <li>
+                    <div class="d-flex">
+                      <%= user_gravatar recent_test.user %>
+                      <% class_name = recent_test.percentage.to_i >= 40 ? "badge-success" : "badge-danger" %>
+                      <div>
+                        <p class="text-info custom-text-info mb-1"><%= recent_test.user.name %>&nbsp;&nbsp;<span class="badge <%= class_name %>"><%= recent_test.percentage.to_i %>%</span></p>
+                        <small><%= get_remaining_hours_string(recent_test.updated_at) %></small>
+                      </div>
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Daily Overview</h4>
+          <!--<p class="card-description">
+            Add class <code>.table-hover</code>
+          </p>-->
+  
+          <div class="table-responsive">
+            <table class="display expandable-table" style="width:100%" id="dashboard-datatable">
+              <thead>
+                <tr>
+                  <th width="20%">Name</th>
+                  <th width="20%">Email</th>
+                  <th width="20%" class="text-center">Status</th>
+                  <th width="20%" class="text-center">Test Taken Date</th>
+                  <th width="20%" class="text-center">Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @recent_users.each do |recent_user| %>
+                  <tr>
+                    <td>
+                      <%= recent_user.name %>
+                    </td>
+                    <td><%= recent_user.email %></td>
+                    <td class="text-center">
+                      <% class_name = (recent_user.status == "test_sent") ? "badge-info" : ((recent_user.status == "test_taken") ? "badge-success" : "badge-danger") %>
+                      <span class="badge <%= class_name %> custom-badge"><%= recent_user.status.humanize %></span>
+                    </td>
+                    <td class="text-center"><%= recent_user.results.present? ? "#{get_date_format(recent_user.results.first.updated_at)}" : "-" %></td>
+                    <td class="text-center"><%= recent_user.results.present? ? "#{recent_user.results.first.percentage.to_i}%" : "-" %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

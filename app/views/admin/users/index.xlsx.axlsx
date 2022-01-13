@@ -1,0 +1,33 @@
+wb = xlsx_package.workbook
+xlsx_package.use_autowidth = false
+
+wb.add_worksheet(name: "Results") do |sheet|
+  style_title = wb.styles.add_style(:sz => 20, :b => "true", :font_name => 'Calibri', :alignment => { :horizontal => :center, :vertical => :center, :wrap_text => true })
+  style_header = wb.styles.add_style(:bg_color => "D3D3D3", :sz => 12, :b => "true", :font_name => 'Calibri', :border => { :style => :thin, :color => "000000" }, :alignment => { :horizontal => :center, :vertical => :center, :wrap_text => true })
+  style_border = wb.styles.add_style(:sz => 12, :font_name => 'Calibri', :border => { :style => :thin, :color => "000000" }, :alignment => { :horizontal => :center, :vertical => :center, :wrap_text => true })
+  style_bold = wb.styles.add_style(:sz => 12, :b => "true", :font_name => 'Calibri', :alignment => { :horizontal => :center, :vertical => :center, :wrap_text => true })
+
+  sheet.column_widths 30, 30, 20, 30, 20, 20, 20
+
+  sheet.add_row([
+    "Name",
+    "Email",
+    "Mobile",
+    "Status",
+    "Marks",
+    "Total Marks",
+    "Percentage"
+  ], :style => style_header)
+
+  @users.each do |user|
+    sheet.add_row [
+      user.name,
+      user.email,
+      user.mobile,
+      user.status != nil ? user.status.humanize : "",
+      user.results.present? ? user.results.first.marks_get : "",
+      user.results.present? ? user.results.first.total_marks : "",
+      user.results.present? ? "#{user.results.first.percentage.to_i}%" : ""
+    ], :style => style_border, :types => [:string]
+  end
+end

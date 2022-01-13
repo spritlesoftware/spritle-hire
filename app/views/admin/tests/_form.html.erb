@@ -1,0 +1,36 @@
+<%= form_with(model: test, local: true, class: "forms-sample") do |f| %>
+  <% if test.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% test.errors.full_messages.each do |message| %>
+          <li style="list-style-type: none; margin-left: -2rem;">
+            <span class="badge badge-sm bg-gradient-danger"><%= message %></span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Name", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :total_time %>
+    <%= f.text_field :total_time, class: "form-control", placeholder: "Total Time", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tags %>
+    <%= f.text_field :tags, class: "form-control", placeholder: "Tags", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :status %>
+    <%= f.select :status, options_for_select({ "Active" => "active", "In Active" => "in_active" }, test.status), { prompt: "Select Status" }, { class: "form-control" } %>
+  </div>
+
+  <%= f.submit class: "btn btn-primary mr-2" %>
+  <%= link_to "Cancel", tests_path, class: "btn btn-light" %>
+<% end %>

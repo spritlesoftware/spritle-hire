@@ -1,0 +1,90 @@
+<div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+  <ul class="navbar-nav navbar-nav-right mr-4">
+    <li class="nav-item dropdown" align="right">
+      <%= link_to new_user_path, :class => "nav-link", title: "Add New Candidate" do %>
+        <i class="mdi mdi-account-plus mx-0 custom-filter"></i>
+      <% end %>
+    </li>
+  </ul>
+
+  <% if @users.length > 0 %>
+    <ul class="navbar-nav navbar-nav-right mr-4">
+      <li class="nav-item dropdown" align="right">
+        <%= link_to users_path(format: "xlsx", params: request.params), :class => "nav-link", title: "Export" do %>
+          <i class="mdi mdi-file-export mx-0 custom-filter"></i>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+
+  <ul class="navbar-nav navbar-nav-right mr-4" id="send-mail">
+    <li class="nav-item dropdown" align="right">
+      <a class="nav-link" id="emailDropdown" href="#" data-toggle="dropdown" title="Mail">
+        <i class="mdi mdi-email mx-0 custom-filter"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="emailDropdown">
+        <%= link_to "#", class: "dropdown-item preview-item", id: "send-reminder-mail", title: "Send Reminder Mail" do %>
+          <div class="preview-thumbnail">
+            <div class="preview-icon bg-info">
+              <i class="ti-email mx-0"></i>
+            </div>
+          </div>
+          <div class="preview-item-content custom-preview-item-content">
+            <h6 class="preview-subject font-weight-normal">Reminder Mail</h6>
+          </div>
+        <% end %>
+        <%= link_to "#", class: "dropdown-item preview-item", id: "send-selection-mail", title: "Send Selection Mail" do %>
+          <div class="preview-thumbnail">
+            <div class="preview-icon bg-success">
+              <i class="ti-email mx-0"></i>
+            </div>
+          </div>
+          <div class="preview-item-content custom-preview-item-content">
+            <h6 class="preview-subject font-weight-normal">Selection Mail</h6>
+          </div>
+        <% end %>
+        <%= link_to "#", class: "dropdown-item preview-item", id: "send-rejection-mail", title: "Send Rejection Mail" do %>
+          <div class="preview-thumbnail">
+            <div class="preview-icon bg-danger">
+              <i class="ti-email mx-0"></i>
+            </div>
+          </div>
+          <div class="preview-item-content custom-preview-item-content">
+            <h6 class="preview-subject font-weight-normal">Rejection Mail</h6>
+          </div>
+        <% end %>
+      </div>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav navbar-nav-right mr-4">
+    <li class="nav-item dropdown" align="right">
+      <a class="nav-link" id="filterDropdown" href="#" data-toggle="dropdown" title="Filter">
+        <i class="mdi mdi-filter mx-0 custom-filter"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list custom-dropdown-menu" aria-labelledby="filterDropdown">
+        <div class ="col-md-12">
+          <%= form_tag(users_path, method: "get", class: "forms-sample") do %>
+            <div class="form-group">
+              <label>From</label>
+              <%= date_field_tag "date_from", @date_from, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <label>To</label>
+              <%= date_field_tag "date_to", @date_to, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <label>Status</label>
+              <%= select_tag "status", options_for_select({ "Test Taken" => "test_taken", "Test Sent" => "test_sent", "Test Not Taken" => "test_not_taken" }, @status), { prompt: "Select Status", class: "form-control" } %>
+            </div>
+            <div class="form-group">
+              <label>Percentage</label>
+              <%= select_tag "percentage", options_for_select({ "Above 40%" => "above", "Below 40%" => "below" }, @percentage), { prompt: "Select Percentage", class: "form-control" } %>
+            </div>
+            <%= submit_tag "Apply", class: "btn btn-block btn-primary mr-2" %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
