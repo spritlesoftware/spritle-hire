@@ -49,3 +49,30 @@ Tool to simplify the hiring process and save valuable time by choosing the right
 8. #### Start the server
 
 &emsp;&emsp;`rails s`
+
+## Screenshots
+
+#### Login Page
+
+![Login Page](https://www.linkpicture.com/q/s_login.png)
+
+#### Dashboard View
+
+![Dashboard View](https://www.linkpicture.com/q/s_dashboard.png)
+
+#### Candidate Directory
+To show the list of candidates with their test status and result percentage.
+
+![Candidate Directory](https://www.linkpicture.com/q/s_candidates.png)
+
+#### Import Candidate
+
+![Import Candidate](https://www.linkpicture.com/q/s_candidates_import.png)
+
+#### List of Questions
+
+![List of Questions](https://www.linkpicture.com/q/s_questions.png)
+
+#### Import Question
+
+![Import Question](https://www.linkpicture.com/q/s_questions_import.png)
