@@ -31,6 +31,8 @@
 /config/database.yml
 
 .env
+Dockerfile
+docker-compose.yaml
 
 /public/packs
 /public/packs-test
