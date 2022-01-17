@@ -50,29 +50,33 @@ Tool to simplify the hiring process and save valuable time by choosing the right
 
 &emsp;&emsp;`rails s`
 
-## Screenshots
+## Screenshots and  Short Clips
 
 #### Login Page
 
-![Login Page](https://www.linkpicture.com/q/s_login.png)
+![Login Page](https://user-images.githubusercontent.com/56751579/149709400-ea89c254-eb8c-40cd-a1af-d52007ad90c0.png)
 
 #### Dashboard View
 
-![Dashboard View](https://www.linkpicture.com/q/s_dashboard.png)
+![Dashboard View](https://user-images.githubusercontent.com/56751579/149709440-ac3f87ac-9d20-4804-9a96-7ade268a0438.png)
 
 #### Candidate Directory
 To show the list of candidates with their test status and result percentage.
 
-![Candidate Directory](https://www.linkpicture.com/q/s_candidates.png)
+![Candidate Directory](https://user-images.githubusercontent.com/56751579/149709488-bc437f66-4605-41f8-a6d2-2bb03138c30a.png)
 
 #### Import Candidate
 
-![Import Candidate](https://www.linkpicture.com/q/s_candidates_import.png)
+![Import Candidate](https://user-images.githubusercontent.com/56751579/149709535-7655213e-13c2-42bc-9957-a2e9a6b3781e.png)
 
 #### List of Questions
 
-![List of Questions](https://www.linkpicture.com/q/s_questions.png)
+![List of Questions](https://user-images.githubusercontent.com/56751579/149709545-9b1955f2-4272-496b-b353-b47557954a78.png)
 
 #### Import Question
 
-![Import Question](https://www.linkpicture.com/q/s_questions_import.png)
+![Import Question](https://user-images.githubusercontent.com/56751579/149709559-de79b65d-152f-48bc-b8f1-760cec48998a.png)
+
+#### Short Clips
+
+https://user-images.githubusercontent.com/56751579/149709189-896ca522-c6ab-44eb-a21d-352b34838f0d.mp4
