@@ -2,15 +2,15 @@
 
 Tool to simplify the hiring process and save valuable time by choosing the right candidates, manage talent pool, strengthen team collaboration, and hire top talent. Make recruitment and talent management your competitive advantages with the best Applicant Tracking System.
 
-## Screenshots and  Short Clips
-
-#### Dashboard View
-
-![Dashboard View](https://user-images.githubusercontent.com/56751579/149709440-ac3f87ac-9d20-4804-9a96-7ade268a0438.png)
+## Short Clips and Screenshots
 
 #### Quick Tour
 
 https://user-images.githubusercontent.com/56751579/149709189-896ca522-c6ab-44eb-a21d-352b34838f0d.mp4
+
+#### Dashboard View
+
+![Dashboard View](https://user-images.githubusercontent.com/56751579/149709440-ac3f87ac-9d20-4804-9a96-7ade268a0438.png)
 
 #### Candidate Directory
 To show the list of candidates with their test status and result percentage.
