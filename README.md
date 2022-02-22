@@ -1,4 +1,4 @@
-# SPRITLE HIRE
+# TALENT SEARCH
 
 Tool to simplify the hiring process and save valuable time by choosing the right candidates, manage talent pool, strengthen team collaboration, and hire top talent. Make recruitment and talent management your competitive advantages with the best Applicant Tracking System.
 
